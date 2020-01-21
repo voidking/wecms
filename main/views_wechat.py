@@ -1,9 +1,20 @@
 import werobot
+from werobot.replies import ImageReply
+
 robot = werobot.WeRoBot(token='vkwechat')
+robot.config['APP_ID'] = 'app_id'
+robot.config['APP_SECRET'] = 'app_secret'
+client = robot.client
 
 @robot.handler
 def index(message):
     return 'Today is wonderful day!'
+
+@robot.filter('image')
+def media(message):
+    media_id = client.upload_permanent_media('image', open(r'C:\Users\haojin\Desktop\favicon.png', 'rb'))['media_id']
+    reply = ImageReply(message=message, media_id=media_id)
+    return reply
 
 @robot.text
 def text(message):
