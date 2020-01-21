@@ -39,3 +39,13 @@ def voice(message):
 @robot.video
 def video(message):
     return '您发送了视频消息，media_id为：' + message.media_id
+
+@robot.subscribe
+def subscribe(event):
+    print('用户' + event.source + '关注了公众号')
+    return '感谢关注voidking，您的ID为：' + event.source
+
+@robot.unsubscribe
+def unsubscribe(event):
+    print('用户' + event.source + '取消了关注')
+    return ''
