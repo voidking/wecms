@@ -1,9 +1,10 @@
+from django.conf import settings
 import werobot
 from werobot.replies import ImageReply
 
-robot = werobot.WeRoBot(token='vkwechat')
-robot.config['APP_ID'] = 'app_id'
-robot.config['APP_SECRET'] = 'app_secret'
+robot = werobot.WeRoBot(token=settings.TOKEN)
+robot.config['APP_ID'] = settings.APP_ID
+robot.config['APP_SECRET'] = settings.APP_SECRET
 client = robot.client
 
 @robot.handler

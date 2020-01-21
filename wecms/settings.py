@@ -119,3 +119,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Wechat Config
+TOKEN = 'vkwechat'
+APP_ID = 'app_id'
+APP_SECRET = 'app_secret'
